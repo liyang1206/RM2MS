@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.rm2pt.req.metamodel.editor;singleton:=true
+Automatic-Module-Name: com.rm2pt.req.metamodel.editor
+Bundle-Version: 1.0.0.202211180739
+Bundle-ClassPath: .
+Bundle-Activator: com.rm2pt.req.metamodel.req.presentation.ReqEditorPlug
+ in$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.rm2pt.req.metamodel.req.presentation
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;visi
+ bility:=reexport,com.rm2pt.req.metamodel.edit;visibility:=reexport,org.
+ eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit.ui;visi
+ bility:=reexport,org.eclipse.ui.ide;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+

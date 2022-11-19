@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.rm2pt.req.metamodel/src-gen" creationIcons="false"
+    editDirectory="/com.rm2pt.req.metamodel.edit/src-gen" editorDirectory="/com.rm2pt.req.metamodel.editor/src-gen"
+    modelPluginID="com.rm2pt.req.metamodel" modelName="Req" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>req.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Req" basePackage="com.rm2pt.req.metamodel" disposableProviderFactory="true"
+      ecorePackage="req.ecore#/">
+    <genClasses ecoreClass="req.ecore#//RequirementModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//RequirementModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//RequirementModel/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//RequirementModel/UseCaseModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//RequirementModel/DomainModel"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Interaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Interaction/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Interaction/participants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Interaction/messages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Interaction/executions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Interaction/combinedFragments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Interaction/ends"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Message/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Message/sendingEnd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Message/receivingEnd"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CallMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//CallMessage/op"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ReturnMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//ReturnMessage/invocationMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Execution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Execution/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Execution/start"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Execution/end"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CombinedFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//CombinedFragment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//CombinedFragment/operator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//CombinedFragment/coveredParticipants"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//CombinedFragment/start"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//CombinedFragment/finish"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CombinedFragment/ownedOperands"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Operand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Operand/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Operand/start"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Operand/finish"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//AbstractEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//AbstractEnd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//MixEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//MixEnd/context"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//MixOpAndCFEnd"/>
+    <genClasses ecoreClass="req.ecore#//MessageEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//MessageEnd/message"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//MultiEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//MultiEnd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ExecutionEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//ExecutionEnd/execution"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CombinedFragmentEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//CombinedFragmentEnd/owner"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//OperandEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//OperandEnd/owner"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//DomainModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//DomainModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//DomainModel/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//DomainModel/entitycontext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//DomainModel/systeminterface"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//UseCaseModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UseCaseModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UseCaseModel/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseModel/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseModel/interaction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseModel/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseModel/contract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseModel/usecasecontext"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Actor/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Actor/superActor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Actor/uc"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//UC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UC/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UC/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UC/UCRelation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UC/relateduc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UC/ssd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UC/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UC/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UC/nf"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Service">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Service/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Service/temp_property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Service/workflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Service/invariance"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Participant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Participant/description"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Workflow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Workflow/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Workflow/participants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Workflow/partitions"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Partition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Partition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Partition/exps"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//WorkflowExp"/>
+    <genClasses ecoreClass="req.ecore#//PartitionAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//PartitionAction/patition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//PartitionAction/action"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//JoinExp"/>
+    <genClasses ecoreClass="req.ecore#//ActivityFinal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//ActivityFinal/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//InitalNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//InitalNode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ForkNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//ForkNode/startlinks"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//JoinNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//JoinNode/endlinks"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ComplexOpeartion"/>
+    <genClasses ecoreClass="req.ecore#//SimpleOperation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//SimpleOperation/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//LoopExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//LoopExp/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//LoopExp/exps"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//SwitchExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//SwitchExp/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//SwitchExp/cases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//SwitchExp/default"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//SwitchCase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//SwitchCase/caseValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//SwitchCase/op"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//SwitchDefault">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//SwitchDefault/op"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Operation/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Operation/returnType"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Parameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Entity/isCRUD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Entity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Entity/superEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Entity/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Entity/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Entity/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Entity/invariance"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Attribute/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Attribute/ismultiple"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Reference/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/ismultiple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/isReverseAssoication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/isAggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/isComposition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Reference/type"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//TypeCS"/>
+    <genClasses ecoreClass="req.ecore#//Invariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Invariance/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Invariance/ocl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//Invariance/isForAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//EntityType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//EntityType/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//EnumEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EnumEntity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//EnumEntity/element"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//EnumItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EnumItem/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Contract">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Contract/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Contract/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Contract/def"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Contract/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Contract/post"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//Contract/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Definition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Definition/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Precondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Precondition/oclexp"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//Postcondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//Postcondition/oclexp"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//OCLExpressionCS"/>
+    <genClasses ecoreClass="req.ecore#//NestedExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//NestedExpCS/nestedExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//LogicFormulaExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//LogicFormulaExpCS/atomicexp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//LogicFormulaExpCS/connector"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//AtomicExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//AtomicExpression/leftside"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//AtomicExpression/infixop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//AtomicExpression/rightside"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//AtomicExpression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//AtomicExpression/num"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//AtomicExpression/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//LeftSubAtomicExpression"/>
+    <genClasses ecoreClass="req.ecore#//RightSubAtomicExpression"/>
+    <genClasses ecoreClass="req.ecore#//CallExpCS"/>
+    <genClasses ecoreClass="req.ecore#//LoopExpCS"/>
+    <genClasses ecoreClass="req.ecore#//IteratorExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IteratorExpCS/objectCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//IteratorExpCS/simpleCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//IteratorExpCS/iterator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IteratorExpCS/varibles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IteratorExpCS/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//EntityAttributeName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EntityAttributeName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ArgumentsCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//ArgumentsCS/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//ArgumentsCS/next"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//FeatureCallExpCS"/>
+    <genClasses ecoreClass="req.ecore#//StandardNavigationCallExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardNavigationCallExpCS/classifercall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardNavigationCallExpCS/propertycall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardNavigationCallExpCS/object"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardNavigationCallExpCS/navop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardNavigationCallExpCS/standardOP"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//StandardOperationExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardOperationExpCS/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardOperationExpCS/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardOperationExpCS/premark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardOperationExpCS/predefinedop"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//PredefineOp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//PredefineOp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//StandardNoneParameterOperation"/>
+    <genClasses ecoreClass="req.ecore#//StandardParameterOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardParameterOperation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//StandardCollectionOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardCollectionOperation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardCollectionOperation/object"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//StandardDateOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//StandardDateOperation/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardDateOperation/datenum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardDateOperation/procall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//StandardDateOperation/nested"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ClassiferCallExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//ClassiferCallExpCS/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//ClassiferCallExpCS/op"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//PropertyCallExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//PropertyCallExpCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//PropertyCallExpCS/selfproperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//PropertyCallExpCS/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//PropertyCallExpCS/premark"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//OperationCallExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//OperationCallExpCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//OperationCallExpCS/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//OperationParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//OperationParameters/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//OperationParameters/objectproperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//OperationParameters/string"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//VariableExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//VariableExpCS/symbol"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//IfExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IfExpCS/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IfExpCS/thenExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//IfExpCS/elseExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//LetExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//LetExpCS/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//LetExpCS/inExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//VariableDeclarationCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//VariableDeclarationCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//VariableDeclarationCS/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//VariableDeclarationCS/initExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//LiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//EnumLiteralExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EnumLiteralExpCS/enumname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EnumLiteralExpCS/eunmitem"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//TupleLiteralExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//TupleLiteralExpCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//TupleLiteralExpCS/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//TupleTypeCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//TupleTypeCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//TupleTypeCS/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CollectionTypeCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionTypeCS/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionTypeCS/type"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CollectionLiteralExpCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionLiteralExpCS/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionLiteralExpCS/part"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CollectionLiteralPartCS"/>
+    <genClasses ecoreClass="req.ecore#//CollectionRangeCS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionRangeCS/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionRangeCS/last"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CollectionItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//CollectionItem/item"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//PrimitiveLiteralExpCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//PrimitiveLiteralExpCS/symbol"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//NumberLiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//BooleanLiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//StringLiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//NullLiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//InvalidLiteralExpCS"/>
+    <genClasses ecoreClass="req.ecore#//ReservedKeywordCS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//ReservedKeywordCS/name"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//CollectionTypeIdentifierCS"/>
+    <genClasses ecoreClass="req.ecore#//PrimitiveTypeCS"/>
+    <genClasses ecoreClass="req.ecore#//OclTypeCS"/>
+    <genClasses ecoreClass="req.ecore#//UseCaseContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UseCaseContext/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UseCaseContext/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseContext/uc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseContext/entitycontext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UseCaseContext/nf"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//EntityContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EntityContext/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//EntityContext/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//EntityContext/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//EntityContext/userinterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//EntityContext/systeminterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//EntityContext/usecasecontext"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//SystemInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//SystemInterface/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//SystemInterface/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//SystemInterface/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//SystemInterface/entitycontext"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ReceiveInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//ReceiveInterface/provideinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//ProvideInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//ProvideInterface/receiveinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//UserInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UserInterface/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//UserInterface/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference req.ecore#//UserInterface/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference req.ecore#//UserInterface/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="req.ecore#//NF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//NF/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//NF/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//NF/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute req.ecore#//NF/stakeholder"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.rm2pt.req.metamodel;singleton:=true
+Automatic-Module-Name: com.rm2pt.req.metamodel
+Bundle-Version: 1.0.0.202211180739
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.rm2pt.req.metamodel.req,com.rm2pt.req.metamodel.req.
+ impl,com.rm2pt.req.metamodel.req.util
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibilit
+ y:=reexport
+Bundle-ActivationPolicy: lazy
+
