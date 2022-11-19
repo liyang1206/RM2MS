@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.rm2pt.req.metamodel;singleton:=true
 Automatic-Module-Name: com.rm2pt.req.metamodel
-Bundle-Version: 1.0.0.202211180739
+Bundle-Version: 1.0.0.202211190852
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

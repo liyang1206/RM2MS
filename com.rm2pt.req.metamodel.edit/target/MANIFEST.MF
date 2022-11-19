@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.rm2pt.req.metamodel.edit;singleton:=true
 Automatic-Module-Name: com.rm2pt.req.metamodel.edit
-Bundle-Version: 1.0.0.202211180739
+Bundle-Version: 1.0.0.202211190852
 Bundle-ClassPath: .
 Bundle-Activator: com.rm2pt.req.metamodel.req.provider.ReqEditPlugin$Imp
  lementation

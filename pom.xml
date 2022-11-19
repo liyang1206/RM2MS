@@ -215,17 +215,13 @@
   </plugins>
  </build>
   <modules>
-   <!--TODO ADD YOUR MODULES HERE-->
-   <!--module>DesignModel</module>
-   <module>DesignModel.edit</module>
-   <module>DesignModel.editor</module-->
    <module>com.rm2pt.req.metamodel</module>
    <module>com.rm2pt.req.metamodel.edit</module>
    <module>com.rm2pt.req.metamodel.editor</module>
-   <module>designmodel.classdiagram.design</module>
-   <module>com.rm2dm.generator</module>
-   <module>com.rm2pt.generator.design.feature</module>
-   <module>com.rm2pt.generator.design.updatesite</module>
+   <module>com.rm2pt.req.design</module>
+   <module>com.rm2ms.generator</module>
+   <module>com.rm2pt.generator.microservice.feature</module>
+   <module>com.rm2pt.generator.microservice.updatesite</module>
  </modules>
   <!--dependencies>
     <dependency>

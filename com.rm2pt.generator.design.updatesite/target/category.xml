@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature id="com.rm2pt.generator.design.feature">
-      <category name="com.rm2pt.generator.design.category"/>
-   </feature>
-   <category-def name="com.rm2pt.generator.design.category" label="designCategory"/>
-</site>
