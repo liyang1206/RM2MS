@@ -17,11 +17,13 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
@@ -40,6 +42,11 @@ import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import com.rm2pt.req.metamodel.req.DomainModel;
+import com.rm2pt.req.metamodel.req.RequirementModel;
+import com.rm2pt.req.metamodel.req.UseCaseModel;
+
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.EObject;
@@ -47,19 +54,21 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-import com.rm2pt.req.metamodel.req.DomainModel;
-import com.rm2pt.req.metamodel.req.RequirementModel;
-import com.rm2pt.req.metamodel.req.UseCaseModel;
-
 import src.main.java.SolutionToXMI.parseToXMI;
 
 
 
 public class GeneratorHandler extends AbstractHandler{
 	private boolean stopFlag = false;
+	private boolean start = false;
     private Document document;
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+        var shell = HandlerUtil.getActiveShell(event);
+        MyInfoWizard javafxproject = new MyInfoWizard();
+        WizardDialog dialog = new WizardDialog(shell, javafxproject);
+    	dialog.open();
+    	start = true;
 		IRunnableWithProgress op = monitor -> {
 			try {   
 				IProject project = null;
@@ -84,15 +93,16 @@ public class GeneratorHandler extends AbstractHandler{
 			                new Thread() {
 			                    public void run() {
 			                    	try {
+			                    		while(!start);
 										document = parseToXMI.createXml(modelFile.getLocation().toFile().toString());
 										stopFlag = true;
-									} catch (IOException e) {
+									} catch (Exception e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
 									};
 			                    }
 			                }.start();
-			                monitor.beginTask("正在执行中......", 300);
+			                monitor.beginTask("正在执行中......", 150);
 	                        int i = 0;
 	                        while (true) {
 	                            // 监听是否单击了进度框的“取消”按钮，stopFlag则是监听后台任务是否停止
@@ -102,7 +112,7 @@ public class GeneratorHandler extends AbstractHandler{
 	                            // i到30后清零。并将进度条重新来过
 	                            if ((++i) == 150) {
 	                                i = 0;
-	                                monitor.beginTask("正在执行中......", 300);
+	                                monitor.beginTask("正在执行中......", 150);
 	                            }
 	                            // 进度条每前进一步体息一会，不用太长或太短，时间可任意设。
 	                            try {
@@ -114,11 +124,11 @@ public class GeneratorHandler extends AbstractHandler{
 							String nameOftheGeneratedFile = ((IFile)firstElement).getName().replace(".remodel", ".req");
 				            // 6、生成xml文件
 				            IFile file = project.getFile("ReqModel/" + nameOftheGeneratedFile);
-				            InputStream input = new BufferedInputStream(new ByteArrayInputStream(document.asXML().getBytes("UTF-8")));
-				            if (!file.exists())
-				            	file.create(input, true, null);
-				            else
-				            	file.setContents(input, true, true, null);
+				            //InputStream input = new BufferedInputStream(new ByteArrayInputStream(document.asXML().getBytes("UTF-8")));
+//				            if (!file.exists())
+//				            	file.create(input, true, null);
+//				            else
+//				            	file.setContents(input, true, true, null);
 		
 							textualModelURI = URI.createPlatformResourceURI(project.getFullPath().append("ReqModel/" + nameOftheGeneratedFile).toString(), true);
 //							GenerateGraphicModel generateGraphicModel = new GenerateGraphicModel();

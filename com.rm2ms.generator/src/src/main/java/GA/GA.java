@@ -14,17 +14,17 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.ProgressBar;
-
+import com.rm2pt.req.generator.handlers.DetailWizardPage;
+import com.rm2pt.req.generator.handlers.MyInfoWizard;
 public class GA {
     static Integer iteration = 800;
-	private static ProgressBar globalProgressBar;
+    static Integer population = 300;
+
     public static void GArun() throws IOException {
-
+    	iteration = Integer.parseInt(MyInfoWizard.iteration);
+    	population = Integer.parseInt(MyInfoWizard.population);
         //创建配置类
-        List<AbstractObjectiveFunction> objectives = new ArrayList<>();
-
-// adding your custom objective
-// you can add as many objectives as you want
+    	List<AbstractObjectiveFunction> objectives = new ArrayList<>();
         //平均接口个数
         objectives.add(new Ob1());
         objectives.add(new Ob2());
@@ -42,14 +42,14 @@ public class GA {
         int len = remodelparse.numofEntity + remodelparse.numofUC;
         configuration.setChromosomeLength(len);
         configuration.setGenerations(iteration);
-        configuration.setPopulationSize(300);
+        configuration.setPopulationSize(population);
         MyParticipantCreator creator= new MyParticipantCreator();
         Mycross mycross = new Mycross(creator);
         configuration.setMutation(new Mymutation());
         configuration.setCrossover(mycross);
         configuration.setChildPopulationProducer(new Childpop());
         configuration.setPopulationProducer(new Initpop());
-        configuration.setGeneticCodeProducer(new GeneticCode()) ;
+        configuration.setGeneticCodeProducer(new GeneticCode());
 //run() returns the final child population or the pareto front
         //Population paretoFront = nsga2.run();
 
