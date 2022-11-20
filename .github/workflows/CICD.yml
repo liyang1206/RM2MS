@@ -10,12 +10,12 @@ jobs:
   RM2MS-Package:
     name: RM2MS Compile and Package
     # if: github.event.pull_request.merged
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     
     steps:
     - uses: actions/checkout@v3
       with:
-        ref: master
+        ref: main
 
     - name: Set up JDK 11
       uses: actions/setup-java@v1
@@ -52,7 +52,7 @@ jobs:
 #    if: github.event.pull_request.merged
     # if: true
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -99,7 +99,7 @@ jobs:
 #    if: github.event.pull_request.merged
     # if: true
     needs: RM2MS-Package
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     
     steps:
     - name: Download RM2PT-Linux
@@ -128,7 +128,7 @@ jobs:
       run: |
           cd RM2MS-UpdateSite
           git remote add origin https://liyang1206:${{secrets.PUSH_TOKEN}}@github.com/RM2PT/RM2MS-updatesite.git     
-          git push -f origin main
+          git push -f origin maister
     - name: Delete UpdateSite 
       uses: geekyeggo/delete-artifact@v1
       with:
