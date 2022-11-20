@@ -128,7 +128,7 @@ jobs:
       run: |
           cd RM2MS-UpdateSite
           git remote add origin https://liyang1206:${{secrets.PUSH_TOKEN}}@github.com/RM2PT/RM2MS-updatesite.git     
-          git push -f origin main
+          git push -f origin master
     - name: Delete UpdateSite 
       uses: geekyeggo/delete-artifact@v1
       with:
