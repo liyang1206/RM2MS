@@ -49,7 +49,7 @@ jobs:
   Deployment-Release:
     name: Deploy Release
     needs: RM2MS-Package
-    if: github.event.pull_request.merged
+#    if: github.event.pull_request.merged
     # if: true
     # The type of runner that the job will run on
     runs-on: ubuntu-18.04
@@ -68,7 +68,7 @@ jobs:
           repo: RM2MS-UpdateSite
           tag_name: v${{ env.version }}
           release_name: RM2MS Release v${{ env.version }}
-          commitish: master
+          commitish: main
           # commitish: main
           body: |
             RM2MS, which includes features as follows:
@@ -96,7 +96,7 @@ jobs:
 
   Deployment-UpdateSite:
     name: Deploy UpdateSite
-    if: github.event.pull_request.merged
+#    if: github.event.pull_request.merged
     # if: true
     needs: RM2MS-Package
     runs-on: ubuntu-18.04
@@ -128,7 +128,7 @@ jobs:
       run: |
           cd RM2MS-UpdateSite
           git remote add origin https://liyang1206:${{secrets.PUSH_TOKEN}}@github.com/RM2PT/RM2MS-updatesite.git     
-          git push -f origin master
+          git push -f origin main
     - name: Delete UpdateSite 
       uses: geekyeggo/delete-artifact@v1
       with:
