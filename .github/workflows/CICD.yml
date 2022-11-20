@@ -68,7 +68,7 @@ jobs:
           repo: RM2MS-UpdateSite
           tag_name: v${{ env.version }}
           release_name: RM2MS Release v${{ env.version }}
-          commitish: master
+          commitish: main
           # commitish: main
           body: |
             RM2MS, which includes features as follows:
@@ -128,7 +128,7 @@ jobs:
       run: |
           cd RM2MS-UpdateSite
           git remote add origin https://liyang1206:${{secrets.PUSH_TOKEN}}@github.com/RM2PT/RM2MS-updatesite.git     
-          git push -f origin maister
+          git push -f origin main
     - name: Delete UpdateSite 
       uses: geekyeggo/delete-artifact@v1
       with:
