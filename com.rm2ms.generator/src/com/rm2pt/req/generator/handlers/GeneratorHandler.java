@@ -124,11 +124,11 @@ public class GeneratorHandler extends AbstractHandler{
 							String nameOftheGeneratedFile = ((IFile)firstElement).getName().replace(".remodel", ".req");
 				            // 6、生成xml文件
 				            IFile file = project.getFile("ReqModel/" + nameOftheGeneratedFile);
-				            //InputStream input = new BufferedInputStream(new ByteArrayInputStream(document.asXML().getBytes("UTF-8")));
-//				            if (!file.exists())
-//				            	file.create(input, true, null);
-//				            else
-//				            	file.setContents(input, true, true, null);
+				            InputStream input = new BufferedInputStream(new ByteArrayInputStream(document.asXML().getBytes("UTF-8")));
+				            if (!file.exists())
+				            	file.create(input, true, null);
+				            else
+				            	file.setContents(input, true, true, null);
 		
 							textualModelURI = URI.createPlatformResourceURI(project.getFullPath().append("ReqModel/" + nameOftheGeneratedFile).toString(), true);
 //							GenerateGraphicModel generateGraphicModel = new GenerateGraphicModel();
